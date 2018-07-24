@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="jumbotron">
+          <p>User choice:
+            <span id="user-choice"></span>
+          </p>
+          <br>
+          <br>
+          <p>Computer choice:
+            <span id="cpu-choice"></span>
+          </p>
+          <br>
+          <br>
+          <p> Wins:
+            <span id="wins"></span>
+          </p>
+          <br>
+          <br>
+
+          <p>Losses:
+            <span id="losses"></span>
+          </p>
+          <br>
+          <br>
+          <p>Ties:
+            <span id="ties"></span>
+          </p>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];
+    var wins = 0
+    var losses = 0
+    var ties = 0
+
+    var userChoice = document.getElementById("user-choice");
+    var cpuChoice = document.getElementById("cpu-choice");
+    var winsElement = document.getElementById("wins");
+    var lossesElement = document.getElementById("losses");
+    var tiesElement = document.getElementById("ties");
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function (event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+      // Alerts the key the user pressed (userGuess).
+      userChoice.textElement = userGuess;
+
+      // Alerts the Computer's guess.
+      cpuChoice.textElement = computerChoices;
+
+      if (userGuess === "r" && computerGuess === "s") {
+        wins += 1;
+        winsElement.textContent = wins;
+
+      } else if (userGuess === "r" && computerGuess === "p") {
+        losses += 1;
+        lossesElement.textContent = losses;
+      }
+
+      if (userGuess === "s" && computerGuess === "r") {
+        losses += 1;
+        lossesElement.textContent = losses;
+      } else if (userGuess === "s" && computerGuess === "p") {
+        wins += 1;
+        winsElement.textContent = wins;
+      }
+
+      if (userGuess === "p" && computerGuess === "r") {
+        wins += 1;
+        winsElement.textContent = wins;
+      } else if (userGuess === "p" && computerGuess === "s") {
+        losses += 1;
+        lossesElement.textContent = losses;
+      }
+
+      if (userGuess === computerGuess) {
+        ties += 1;
+        tiesElement.textContent = ties;
+      }
+
+    };
+  </script>
+
+</body>
+
+</html>
