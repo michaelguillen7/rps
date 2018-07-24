@@ -62,15 +62,15 @@
 
       // Determines which key was pressed.
       var userGuess = event.key;
+      userChoice.textContent = userGuess;
 
       // Randomly chooses a choice from the options array. This is the Computer's guess.
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
       // Alerts the key the user pressed (userGuess).
-      userChoice.textElement = userGuess;
 
       // Alerts the Computer's guess.
-      cpuChoice.textElement = computerChoices;
+      cpuChoice.textContent = computerGuess;
 
       if (userGuess === "r" && computerGuess === "s") {
         wins += 1;
